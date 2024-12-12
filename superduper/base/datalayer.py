@@ -269,6 +269,10 @@ class Datalayer:
         for e in datatypes:
             self.add(e)
 
+        if not insert.documents:
+            logging.info(f'No documents to insert into {insert.table}')
+            return []
+
         for r in insert.documents:
             r.setdefault(
                 '_fold',
